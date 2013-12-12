@@ -1,0 +1,31 @@
+
+<div id="cart">
+    <input type="checkbox" id="water">water <br>
+    <input type="checkbox" id="milk">milk <br>         
+</div>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="/socket.io/socket.io.js"></script>
+<script>
+  
+  var socket = io.connect('http://localhost:3000');
+  socket.on('news', function(data){
+      console.log("caught new event in index");
+  });
+  
+  
+  socket.on('changed' , function(socket){
+        $("#water").prop('checked',socket);
+  });
+  
+  $('#water').change(function(){
+        socket.emit('from_client', $("#water").prop('checked'));
+  });
+  
+</script>
+
+
+<div id="data">
+    
+</div>
+

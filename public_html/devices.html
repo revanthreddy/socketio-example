@@ -1,0 +1,21 @@
+
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="/socket.io/socket.io.js"></script>
+<script>
+  
+  var socket = io.connect('http://localhost:3000');
+  
+  socket.on('newdevice' , function(data){
+        $("#data").append(data +"<br>");
+  });
+  
+ 
+</script>
+<h1>Devices</h1>
+
+<div id="data">
+    
+</div>
+
