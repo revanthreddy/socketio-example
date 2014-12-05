@@ -29,8 +29,8 @@ app.post('/devices',function(req,res){
     
     //console.log("New Device "+ req.body.deviceName+" posted ");
     
-    console.log(req.body);
-    io.sockets.emit('newdevice',JSON.stringify(req.body)); 
+    console.log("body : "+req.body.device);
+    io.sockets.emit('newdevice',{"device" : req.body.device}); 
 
     return res.send("Device broadcasted");
 });

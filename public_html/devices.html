@@ -8,7 +8,8 @@
   var socket = io.connect('http://localhost:3000');
   
   socket.on('newdevice' , function(data){
-        $("#data").append(data +"<br>");
+      console.log(data.device);
+        $("#data").append(data.device +"<br>");
   });
   
  
